@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1354657501",
+    "project_id": "authenticationinternship",
+    "storage_bucket": "authenticationinternship.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1354657501:android:e083c2a81b13efc2f73534",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1354657501-mme2th3dqfc8motq31bi2oqejalb6n3j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoNuidhC5Ln49vIZPWZst5HcTByWCLP5U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1354657501-mme2th3dqfc8motq31bi2oqejalb6n3j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
