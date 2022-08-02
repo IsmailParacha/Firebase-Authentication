@@ -13,13 +13,12 @@ class OwnData extends StatefulWidget {
 class _OwnDataState extends State<OwnData> {
   @override
   Widget build(BuildContext context) {
-    final user = FirebaseAuth.instance.currentUser!;
-    final String currentUserId = user.uid;
+    final user = FirebaseAuth.instance.idTokenChanges();
     return Scaffold(
       appBar: AppBar(
         title: Text("Own Product"),
       ),
-      body: Center(child: Text("$currentUserId")),
+      body: Center(child: Text("$user")),
     );
   }
 }
