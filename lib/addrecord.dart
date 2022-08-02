@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -7,6 +8,9 @@ class addrecord extends StatefulWidget {
   @override
   State<addrecord> createState() => _addrecordState();
 }
+
+final curuser = FirebaseAuth.instance.currentUser!;
+var currentUserId = curuser.uid;
 
 class _addrecordState extends State<addrecord> {
   final namecontroller = TextEditingController();
@@ -67,6 +71,7 @@ class _addrecordState extends State<addrecord> {
                       detail: detailcontroller.text,
                       quantity: quantitycontroller.text,
                       price: pricecontroller.text,
+                      curUser: currentUserId,
                     );
                     createUser(user: user);
                     Navigator.pop(context);
@@ -93,8 +98,11 @@ class User {
   final String detail;
   final String quantity;
   final String price;
+  final String curUser;
+
   User(
       {this.id = '',
+      this.curUser = '{currentUserId}',
       required this.name,
       required this.detail,
       required this.quantity,
@@ -104,6 +112,7 @@ class User {
         'name': name,
         'detail': detail,
         'quantity': quantity,
-        'price': price
+        'price': price,
+        'userId': curUser
       };
 }

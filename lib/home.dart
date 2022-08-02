@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/OwnData.dart';
 import 'package:flutter_application_1/addrecord.dart';
 
 class homepage extends StatefulWidget {
@@ -15,6 +17,20 @@ class _homepageState extends State<homepage> {
     return Scaffold(
         appBar: AppBar(
           title: Text("Order Detail"),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: InkWell(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => OwnData()),
+                ),
+                child: CircleAvatar(
+                  child: Text("P"),
+                ),
+              ),
+            )
+          ],
         ),
         body: StreamBuilder<List<User1>>(
             stream: readUsers(),
