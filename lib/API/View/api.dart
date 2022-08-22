@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_application_1/API/Controller/remoteServices.dart';
 import 'package:flutter_application_1/API/Model/Post.dart';
 
 class api extends StatefulWidget {
@@ -21,8 +22,14 @@ class _apiState extends State<api> {
   }
 
   getData() async {
-    // posts=await
+    posts = await remoteService().getPosts();
+    if (posts != null) {
+      setState(() {
+        isLoaded = true;
+      });
+    }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,12 +37,18 @@ class _apiState extends State<api> {
           title: Text("API using"),
           centerTitle: true,
         ),
-        body: ListView.builder(
-            itemCount: 10,
-            itemBuilder: ((context, index) {
-              return Container(
-                child: Text(""),
-              );
-            })));
+        body: Visibility(
+          visible: isLoaded,
+          child: ListView.builder(
+              itemCount: posts?.length,
+              itemBuilder: ((context, index) {
+                return Container(
+                  child: Text(
+                    posts![index].title,
+                  ),
+                );
+              })),
+          replacement: const Center(child: CircularProgressIndicator()),
+        ));
   }
 }
