@@ -5,6 +5,7 @@ import 'package:flutter_application_1/signup.dart';
 
 import 'home.dart';
 import 'login.dart';
+import 'navigation.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,7 +34,7 @@ class Myapp extends StatelessWidget {
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, Snapshot) {
             if (Snapshot.hasData) {
-              return homepage();
+              return Home();
             } else if (Snapshot.connectionState == ConnectionState.waiting) {
               return Center(
                 child: CircularProgressIndicator(),
