@@ -43,10 +43,15 @@ class _apiState extends State<api> {
               itemCount: posts?.length,
               itemBuilder: ((context, index) {
                 return Container(
-                  child: Text(
-                    posts![index].title,
-                  ),
-                );
+                    child: Column(
+                  children: [
+                    Text(
+                      posts![index].title,
+                      style: TextStyle(fontWeight: FontWeight.w600),
+                    ),
+                    Text(posts![index].body ?? ''),
+                  ],
+                ));
               })),
           replacement: const Center(child: CircularProgressIndicator()),
         ));
